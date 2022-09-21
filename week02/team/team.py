@@ -13,7 +13,10 @@ Instructions:
 """
 
 from datetime import datetime, timedelta
+from nturl2path import url2pathname
+from operator import truediv
 import threading
+from urllib.request import Request
 import requests
 import json
 
@@ -26,7 +29,29 @@ from cse251 import *
 class Request_thread(threading.Thread):
     # TODO - Add code to make an API call and return the results
     # https://realpython.com/python-requests/
-    pass
+    
+    # Constructor
+    def __init__(self, url):
+        threading.Thread.__init__(self)
+        self.url = url
+        self.data = {}
+    
+    # Behavior of the thread
+    def run(self):
+        # Get data from server
+        promise = requests.get(self.url)
+
+        # Check for success code in response.
+        if promise.status_code == 200:
+            self.data = promise.json()
+        else:
+            print(f"\tFailure: {promise.status_code}")
+
+
+
+
+
+
 
 class Deck:
 
@@ -37,12 +62,23 @@ class Deck:
 
 
     def reshuffle(self):
-        # TODO - add call to reshuffle
-        pass
+        res = Request_thread(f"http://deckofcardsapi.com/api/deck/{deck_id}/shuffle/")
+        res.start()
+        res.join()
 
     def draw_card(self):
-        # TODO add call to get a card
-        pass
+        # Put in the request to draw the card.
+        draw = Request_thread(f"http://deckofcardsapi.com/api/deck/{deck_id}/draw/?count=1")
+        draw.start()
+        draw.join()
+
+        # Check to see if that card is valid
+        if draw.data == {}:
+            return 'ERROR'
+        
+        # Set the remaining cards and the card value
+        self.remaining = draw.data["remaining"]
+        return draw.data["cards"][0]["code"]
 
     def cards_remaining(self):
         return self.remaining
@@ -61,7 +97,7 @@ if __name__ == '__main__':
     #        team_get_deck_id.py program once. You can have
     #        multiple decks if you need them
 
-    deck_id = 'ENTER ID HERE'
+    deck_id = 'ftehn41j7v27'
 
     # Testing Code >>>>>
     deck = Deck(deck_id)

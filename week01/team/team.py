@@ -51,13 +51,35 @@ if __name__ == '__main__':
     # TODO 2) move the following for loop into 1 thread
     # TODO 3) change the program to divide the for loop into 10 threads
 
+    # Parameters set to determine what each thread will be checking.
     start = 10000000000
     range_count = 100000
-    for i in range(start, start + range_count):
-        if is_prime(i):
-            prime_count += 1
-            print(i, end=', ', flush=True)
-    print(flush=True)
+    thread_count = 10
+    thread_range = range_count // thread_count
+
+    # Create an array to hold the threads.
+    threads = []
+
+    # Define the behavior of a thread.
+    def thread_function(start, thread_range):
+        global prime_count
+        for i in range(start, start + thread_range):
+            if is_prime(i):
+                prime_count += 1
+                # print(i, end=', ', flush=True)
+        print(flush=True)
+
+    # Create each thread
+    for i in range(thread_count):
+        threads.append(threading.Thread(target=thread_function, args=(start + (i * thread_range), thread_range)))
+
+    for t in range(thread_count):
+        threads[t].start()
+    
+    for t in range(thread_count):
+        threads[t].join()
+
+
 
     # Should find 4306 primes
     log.write(f'Numbers processed = {numbers_processed}')
