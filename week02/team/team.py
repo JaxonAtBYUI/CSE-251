@@ -48,11 +48,6 @@ class Request_thread(threading.Thread):
             print(f"\tFailure: {promise.status_code}")
 
 
-
-
-
-
-
 class Deck:
 
     def __init__(self, deck_id):
