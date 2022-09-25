@@ -114,19 +114,19 @@ def print_info(info):
   print("Released:", info['release'],'\n')
 
   print("Characters:", len(info['characters']))
-  print(", ".join(info['characters']), '\n')
+  print(", ".join(sorted(info['characters'])), '\n')
 
   print("Planets:", len(info['planets']))
-  print(", ".join(info['planets']), '\n')
+  print(", ".join(sorted(info['planets'])), '\n')
 
   print("Starships:", len(info['starships']))
-  print(", ".join(info['starships']), '\n')
+  print(", ".join(sorted(info['starships'])), '\n')
 
   print("Vehicles:", len(info['vehicles']))
-  print(", ".join(info['vehicles']), '\n')
+  print(", ".join(sorted(info['vehicles'])), '\n')
 
   print("Species:", len(info['species']))
-  print(", ".join(info['species']), '\n')
+  print(", ".join(sorted(info['species'])), '\n')
 
 
 
