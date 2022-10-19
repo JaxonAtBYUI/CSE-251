@@ -21,7 +21,7 @@ import random
 #Include cse 251 common Python files
 from cse251 import *
 
-PRIME_PROCESS_COUNT = 1
+PRIME_PROCESS_COUNT = 9
 
 def is_prime(n: int) -> bool:
     """Primality test using 6k+-1 optimization.
@@ -39,8 +39,21 @@ def is_prime(n: int) -> bool:
     return True
 
 # TODO create read_thread function
+def read_thread(filename, queue):
+    with open(filename, 'r') as f:
+        for line in f:
+            queue.put(int(line))
+    
+    [queue.put("no more empty") for i in range(PRIME_PROCESS_COUNT)]
 
 # TODO create prime_process function
+def prime_process(queue, primes):
+    while True:
+        value = queue.get()
+        if value == "no more empty":
+            break
+        if is_prime(value):
+            primes.append(value)
 
 def create_data_txt(filename):
     with open(filename, 'w') as f:
@@ -50,25 +63,36 @@ def create_data_txt(filename):
 
 def main():
     """ Main function """
-
     filename = 'data.txt'
 
     # Once the data file is created, you can comment out this line
     create_data_txt(filename)
-
+    
     log = Log(show_terminal=True)
     log.start_timer()
 
     # TODO Create shared data structures
-
+    queue = mp.Queue()
+    primes = mp.Manager().list()
+    
     # TODO create reading thread
+    r_thread = threading.Thread(target = read_thread, args = (filename, queue))
 
     # TODO create prime processes
-
+    processes = []
+    for i in range(PRIME_PROCESS_COUNT):
+        processes.append(mp.Process(target=prime_process, args=(queue, primes))) 
+    
     # TODO Start them all
-
+    r_thread.start()
+    for p in processes:
+        p.start()
+    
     # TODO wait for them to complete
-
+    r_thread.join()
+    for p in processes:
+        p.join()
+    
     log.stop_timer(f'All primes have been found using {PRIME_PROCESS_COUNT} processes')
 
     # display the list of primes
