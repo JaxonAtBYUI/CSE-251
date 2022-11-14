@@ -138,7 +138,10 @@ def _solve(maze, x, y, color, maze_lock):
 def solve_find_end(maze):
     maze_lock = threading.Lock()
     global stop
+    global thread_count
+    thread_count = 0
     stop = False
+
     
     # Get the process going
     start = maze.get_start_pos()
