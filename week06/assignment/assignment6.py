@@ -266,7 +266,6 @@ def main():
     gift_in, gift_out = mp.Pipe()
 
     # TODO create variable to be used to count the number of gifts
-    # Do we not need the Value to keep the count?
     count = mp.Value('i', 0)
 
     # delete final boxes file

@@ -61,9 +61,46 @@ Instructions:
 
 import time
 import threading
+import random
 
 PHILOSOPHERS = 5
 MAX_MEALS = PHILOSOPHERS * 5
+DELAY = 1
+TIMES_TO_EAT = 5
+
+PHILOSPHER_NAMES = ["Pythagoras", "Confucius ","Heracleitus ","Parmenides ","Zeno of Elea ","Socrates ","Democritus ","Plato ","Aristotle ","Mencius ","Zhuangzi ","Pyrrhon of Elis ","Epicurus ","Zeno of Citium ","Philo Judaeus ","Marcus Aurelius ","Nagarjuna ","Plotinus ","Sextus Empiricus ","Saint Augustine ","Hypatia ","Anicius Manlius Severinus Boethius ","Śaṅkara ","Yaqūb ibn Ishāq aṣ-Ṣabāḥ al-Kindī ","Al-Fārābī ","Avicenna ","Rāmānuja ","Ibn Gabirol ","Saint Anselm of Canterbury ","al-Ghazālī ","Peter Abelard ","Averroës ","Zhu Xi ","Moses Maimonides ","Ibn al-'Arabī ","Shinran ","Saint Thomas Aquinas ","John Duns Scotus ","William of Ockham ","Niccolò Machiavelli ","Wang Yangming ","Francis Bacon, Viscount Saint Alban (or Albans), Baron of Verulam ","Thomas Hobbes ","René Descartes ","John Locke ","Benedict de Spinoza ","Gottfried Wilhelm Leibniz ","Giambattista Vico ","George Berkeley ","Charles-Louis de Secondat, baron de La Brède et de Montesquieu ","David Hume ","Jean-Jacques Rousseau ","Immanuel Kant ","Moses Mendelssohn ","Marie-Jean-Antoine-Nicolas de Caritat, marquis de Condorcet ","Jeremy Bentham ","Georg Wilhelm Friedrich Hegel ","Arthur Schopenhauer ","Auguste Comte ","John Stuart Mill ","Søren Kierkegaard ","Karl Marx ","Herbert Spencer ","Wilhelm Dilthey ","William James ","Friedrich Nietzsche ","Friedrich Ludwig Gottlob Frege ","Edmund Husserl ","Henri Bergson ","John Dewey ","Alfred North Whitehead ","Benedetto Croce ","Nishida Kitarō ","Bertrand Russell ","G.E. Moore ","Martin Buber ","Ludwig Wittgenstein ","Martin Heidegger ","Rudolf Carnap ","Sir Karl Popper ","Theodor Wiesengrund Adorno ","Jean-Paul Sartre ","Hannah Arendt ","Simone de Beauvoir ","Willard Van Orman Quine ","Sir A.J. Ayer ","Wilfrid Sellars ","John Rawls ","Thomas S. Kuhn ","Michel Foucault ","Noam Chomsky ","Jürgeb Gabernas ","Sir Bernard Williams ","Jacques Derrida ","Richard Rorty ","Robert Nozick ","Saul Kripke ","David Kellogg Lewis ","Peter"]
+
+class Philosopher(threading.Thread):
+    # Initialize the philosopher
+    def __init__(self, name, id, lock_meals, left, right):
+        threading.Thread.__init__(self)
+        self.id = id
+        self.lock_meals = lock_meals
+        self.left = left
+        self.right = right
+        self.name = name
+
+    def run(self):
+        global meals
+        done = False
+        while not done:
+            if meals > TIMES_TO_EAT:
+                done = True
+                continue
+            if self.watier.can_eat(self.id):
+                self.dining()
+                with self.lock:
+                    meals += 1
+                self.waiter.finished_eating(self.id)
+                self.thinking()
+            else:
+                time.sleep(random.uniform(1, 3) / 10)
+    
+    def dining(self):
+        print ("Philosopher", self.name, " starts to eat.")
+        time.sleep(random.uniform(1, 3) / DELAY)
+        print ("Philosopher", self.id, " finishes eating and leaves to think.")
+
 
 def main():
     # TODO - create the waiter (A class would be best here)
@@ -71,7 +108,6 @@ def main():
     # TODO - create PHILOSOPHERS philosophers
     # TODO - Start them eating and thinking
     # TODO - Display how many times each philosopher ate
-
     pass
 
 if __name__ == '__main__':
