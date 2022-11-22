@@ -53,7 +53,7 @@ int isPrime(int number)
 }
 
 // ----------------------------------------------------------------------------
-void findPrimes(void* record)
+void *findPrimes(void* record)
 {
   cout << endl << "Starting findPrimes" << endl;
 
@@ -91,6 +91,10 @@ int main()
   struct args rec = { arrayValues, 0, NUMBERS - 1 };
 
   // Find the primes in the array
+  pthread_t tPrimes;
+
+  pthread_create(&tPrimes, NULL, findPrimes, (void *)&rec);
+  pthread_join(tPrimes, NULL);
   findPrimes(&rec);
 
   return 0;
