@@ -1,0 +1,126 @@
+17:43:36| 
+
+17:43:36| ############################################################
+17:43:36| Depth First Search: 6 generations
+17:43:36| ############################################################
+17:43:39| 3.55037050
+17:43:40| 
+
+
+17:43:40| ************* TREE DISPLAY *************
+17:43:40| Family id: 5008212123
+17:43:40|   Husband: Samuel, 8-5-1919
+17:43:40|   Wife: Aurora, 18-2-1958
+17:43:40|   Husband Parents: Liam and Natalie
+17:43:40|   Wife Parents: None
+17:43:40|   Children: Aiden, Gabriel, Willow, Aria, Jacob, Gabriel, Noah
+17:43:40| Family id: 5017220813
+17:43:40|   Husband: Liam, 20-10-1805
+17:43:40|   Wife: Natalie, 3-11-1807
+17:43:40|   Husband Parents: None
+17:43:40|   Wife Parents: Wyatt and Grace
+17:43:40|   Children: John, Bella, Addison, Sebastian, Lucas, James, Nora, Charlotte, Samuel
+17:43:40| Family id: 5025424447
+17:43:40|   Husband: Wyatt, 16-9-2014
+17:43:40|   Wife: Grace, 20-2-1795
+17:43:40|   Husband Parents: Aiden and Nora
+17:43:40|   Wife Parents: Oliver and Leah
+17:43:40|   Children: Liam, Logan, Natalie
+17:43:40| Family id: 5069636409
+17:43:40|   Husband: Oliver, 10-9-1801
+17:43:40|   Wife: Leah, 13-9-1802
+17:43:40|   Husband Parents: None
+17:43:40|   Wife Parents: Anthony and Isabella
+17:43:40|   Children: Leo, Ella, Grace
+17:43:40| Family id: 4967324257
+17:43:40|   Husband: Aiden, 10-12-1899
+17:43:40|   Wife: Nora, 8-2-1838
+17:43:40|   Husband Parents: Noah and Lily
+17:43:40|   Wife Parents: None
+17:43:40|   Children: Aria, Natalie, Mateo, Anthony, Wyatt
+17:43:40| Family id: 5077856619
+17:43:40|   Husband: Anthony, 14-9-1976
+17:43:40|   Wife: Isabella, 17-6-1899
+17:43:40|   Husband Parents: Carter and Aubrey
+17:43:40|   Wife Parents: Anthony and Ella
+17:43:40|   Children: Hazel, Camila, Isaac, Leah
+17:43:40| Family id: 4976314451
+17:43:40|   Husband: Noah, 3-7-2011
+17:43:40|   Wife: Lily, 30-3-1896
+17:43:40|   Husband Parents: Joseph and Nora
+17:43:40|   Wife Parents: Christopher and Elizabeth
+17:43:40|   Children: Zoey, Joseph, Lillian, Aiden
+17:43:40| Family id: 5086848861
+17:43:40|   Husband: Carter, 24-12-1852
+17:43:40|   Wife: Aubrey, 17-7-1760
+17:43:40|   Husband Parents: None
+17:43:40|   Wife Parents: None
+17:43:40|   Children: Charlotte, Layla, Alexander, Elizabeth, Olivia, Anthony
+17:43:40| Family id: 5095856783
+17:43:40|   Husband: Anthony, 28-11-1788
+17:43:40|   Wife: Ella, 18-8-1983
+17:43:40|   Husband Parents: None
+17:43:40|   Wife Parents: None
+17:43:40|   Children: Amelia, Hazel, Isabella
+17:43:40| Family id: 4984536965
+17:43:40|   Husband: Joseph, 11-6-1954
+17:43:40|   Wife: Nora, 26-5-2007
+17:43:40|   Husband Parents: None
+17:43:40|   Wife Parents: None
+17:43:40|   Children: Ethan, Julian, Avery, Charlotte, Noah
+17:43:40| Family id: 4993527287
+17:43:40|   Husband: Christopher, 20-7-1759
+17:43:40|   Wife: Elizabeth, 3-11-1978
+17:43:40|   Husband Parents: None
+17:43:40|   Wife Parents: None
+17:43:40|   Children: Amelia, Joshua, Sofia, Joseph, Leo, Grace, Lily
+17:43:40| 
+17:43:40| Number of people                    : 68
+17:43:40| Number of families                  : 11
+17:43:40| Max generations                     : 6
+17:43:40| People connected to starting family : 68
+17:43:40| 
+17:43:40| total_time                          : 3.55037
+17:43:40| Generations                         : 6
+17:43:40| People % Families / second          : 22.25120
+17:43:40| 
+17:43:40| 
+
+17:43:40| ############################################################
+17:43:40| Breadth First Search: 6 generations
+17:43:40| ############################################################
+17:43:40| 0.00143600
+17:43:40| 
+
+
+17:43:40| ************* TREE DISPLAY *************
+17:43:40| 
+17:43:40| Number of people                    : 0
+17:43:40| Number of families                  : 0
+17:43:40| Max generations                     : 0
+17:43:40| People connected to starting family : 0
+17:43:40| 
+17:43:40| total_time                          : 0.00144
+17:43:40| Generations                         : 6
+17:43:40| People % Families / second          : 0.00000
+17:43:40| 
+17:43:41| 
+
+17:43:41| ############################################################
+17:43:41| Breadth First Search limit 5: 6 generations
+17:43:41| ############################################################
+17:43:41| 0.00093460
+17:43:41| 
+
+
+17:43:41| ************* TREE DISPLAY *************
+17:43:41| 
+17:43:41| Number of people                    : 0
+17:43:41| Number of families                  : 0
+17:43:41| Max generations                     : 0
+17:43:41| People connected to starting family : 0
+17:43:41| 
+17:43:41| total_time                          : 0.00093
+17:43:41| Generations                         : 6
+17:43:41| People % Families / second          : 0.00000
+17:43:41| 

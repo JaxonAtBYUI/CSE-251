@@ -1,7 +1,7 @@
 """
 Course: CSE 251, week 14
 File: common.py
-Author: <your name>
+Author: Jaxon Hamm
 """
 import time
 import threading
@@ -147,7 +147,7 @@ class Tree:
                 else:
                     log.write(f'  Wife Parents: None')
 
-            # children
+            # Children
             output = []
             for index, child_id in enumerate(fam.children):
                 person = self.people[child_id]
